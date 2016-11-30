@@ -1,0 +1,33 @@
+﻿@model Calculator.Controllers.CalculatorModel
+
+@{
+    ViewBag.Title = "PostCalculator";
+}
+
+<div>
+
+
+    @using (Html.BeginForm("Index", "MVCMath", FormMethod.Post))
+    {
+        <h2>Calculator - Post method</h2>
+        @Html.LabelFor(x => x.FirstNumber)
+        @Html.TextBoxFor(x => x.FirstNumber)
+
+
+
+        @Html.LabelFor(x => x.SecondNumber)
+        @Html.TextBoxFor(x => x.SecondNumber)
+
+        <input type="hidden" value="Add" name="operation" />
+            <br />
+
+            @Html.LabelFor(x => x.Result)
+            @Model.Result
+
+        <input type="submit" name="submit" value="Add" />
+        <input type="submit" name="submit" value="Substract" />
+        <input type="submit" name="submit" value="Multiply" />
+        <input type="submit" name="submit" value="Divide" />
+    }
+
+</div>

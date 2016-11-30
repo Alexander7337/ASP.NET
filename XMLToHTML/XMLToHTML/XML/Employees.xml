@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Employees>
+  <Employee>
+    <name>Akshay</name>
+    <age>23</age>
+    <designation>Administrator</designation>
+    <town>Singapour</town>
+  </Employee>
+  <Employee>
+    <name>Pushkar</name>
+    <age>30</age>
+    <designation>Designer</designation>
+    <town>Tel Aviv</town>
+  </Employee>
+  <Employee>
+    <name>Abhay</name>
+    <age>29</age>
+    <designation>Project Manager</designation>
+    <town>HongKong</town>
+  </Employee>
+  <Employee>
+    <name>Sushil</name>
+    <age>33</age>
+    <designation>DB Admin</designation>
+    <town>Shanghai</town>
+  </Employee>
+</Employees>

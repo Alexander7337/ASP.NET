@@ -1,0 +1,8 @@
+﻿@using XMLToHTML.Helper;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>News</h2>
+@Html.RenderXml(ViewBag.Data as string, Server.MapPath("../XSLT/News.xslt"))
+
