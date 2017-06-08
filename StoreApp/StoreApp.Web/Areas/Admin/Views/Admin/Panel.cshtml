@@ -1,0 +1,50 @@
+﻿@using StoreApp.Models.ViewModels.Admin
+@model AdminPageVm
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Panel";
+}
+
+<style>
+    .bordered {
+        border: 2px solid grey;
+        padding: 5px;
+        padding: 20px;
+    }
+</style>
+
+<h2>Admin Panel</h2>
+
+@Html.ActionLink("Add Product", "AddProduct", null, new { @class = "btn btn-lg btn-success" })
+<br/>
+<br />
+
+<div class="row">
+    <div class="col-sm-5 bordered">
+        <h4>Products</h4>
+        <hr />
+        @foreach (var product in Model.Products)
+        {
+            <div class="admin-product">
+                <h3>@Html.DisplayFor(vm => product.Name) @Html.DisplayFor(vm => product.Model)</h3>
+            </div>
+            @Html.ActionLink("Edit", "EditProduct", new { id = product.Id}, new { @class = "btn btn-md btn-warning"})
+            <hr />
+        }
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-5 bordered">
+        <h4>Customers</h4>
+        <hr />
+        @foreach (var user in Model.Users)
+        {
+            <div class="admin-customer">
+                <h3>@Html.DisplayFor(vm => user.Name)</h3>
+            </div>
+            @Html.ActionLink("Edit", "EditUser", new { id = user.Id }, new { @class = "btn btn-md btn-warning" })
+            <hr />
+        }
+    </div>
+</div>
+

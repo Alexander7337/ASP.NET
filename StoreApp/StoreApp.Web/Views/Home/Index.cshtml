@@ -1,0 +1,25 @@
+﻿@using StoreApp.Models.ViewModels.Product
+@model IEnumerable<ProductViewModel>
+
+@{
+    ViewBag.Title = "All Products";
+}
+
+<h2 style="width: 100%; text-align:center">All Products</h2>
+
+@foreach (var item in Model)
+{
+    <div class="product-view-model">
+
+        <div>
+            @Html.DisplayFor(vm => item.Name) 
+            @Html.DisplayFor(vm => item.Model)
+        </div>
+
+        <img class="product-view-model-img" src="@item.ImageUrl" alt="@item.Name" height="100" width="100"/>
+
+        <br />
+
+        @Html.ActionLink("Details", "Details", "Product", new { id = item.Id } , new { @class = "btn btn-sm btn-warning"})
+    </div>
+}

@@ -1,0 +1,66 @@
+﻿@using StoreApp.Models.ViewModels.Product
+@model ProductViewModel
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<style>
+    .my-btn {
+        margin: 10px;
+        float: left;
+    }
+
+    .custom-details {
+        text-align:left;
+        font: normal 20px verdana;
+        width: 50%;
+        margin-left: 24%;
+        margin-right: 24%;
+    }
+</style>
+
+<h2 style="width: 100%; text-align:center">Details</h2>
+    <br /><br />
+
+    <div class="custom-details">
+        @Html.DisplayNameFor(vm => Model.Name):
+        @Html.DisplayFor(vm => Model.Name)
+        <br /><br />
+
+        @Html.DisplayNameFor(vm => Model.Model):
+        @Html.DisplayFor(vm => Model.Model)
+        <br /><br />
+
+        <img class="" src="@Model.ImageUrl" alt="@Model.Name" height="175" />
+        <br /><br />
+
+        @Html.DisplayNameFor(vm => Model.Description):
+        @{
+            string[] arr = new HtmlString(Model.Description).ToString().Split('>');
+
+            foreach (var item in arr)
+            {
+                <div>
+                    - @Html.DisplayFor(vm => item)
+                </div>
+            }
+            //string text = new HtmlString(Model.Description).ToString();
+            //text = text.Replace(">", Environment.NewLine);
+        }
+       
+        
+        
+        <br /><br />
+    </div>
+
+@Html.ActionLink("Back", "Index", "Home", null, new { @class = "btn btn-md btn-primary my-btn"})
+
+@if (User.Identity.IsAuthenticated)
+{
+    using (Html.BeginForm("Buy", "Customer", FormMethod.Post))
+    {
+        <input type="number" value="@Model.Id" hidden="hidden" name="productId"/>
+        <input type="submit" value="Buy" class="btn btn-md btn-success my-btn"/>
+    }
+}
